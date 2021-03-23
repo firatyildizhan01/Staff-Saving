@@ -52,8 +52,9 @@ namespace WindowsFormsApp16
             this.btnSave = new System.Windows.Forms.Button();
             this.btnList = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtName2 = new System.Windows.Forms.TextBox();
+            this.txtJobs = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.Label();
-            this.txtName1 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.peridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +68,6 @@ namespace WindowsFormsApp16
             this.personelVeriTabaniDataSet = new WindowsFormsApp16.PersonelVeriTabaniDataSet();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.table_1TableAdapter = new WindowsFormsApp16.PersonelVeriTabaniDataSetTableAdapters.Table_1TableAdapter();
-            this.txtJobs = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -104,7 +104,6 @@ namespace WindowsFormsApp16
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Jobs";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -132,7 +131,6 @@ namespace WindowsFormsApp16
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Cities:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtCities
             // 
@@ -161,7 +159,6 @@ namespace WindowsFormsApp16
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 2;
             this.label5.Text = "Salary";
-            this.label5.Click += new System.EventHandler(this.label4_Click);
             // 
             // label6
             // 
@@ -223,7 +220,6 @@ namespace WindowsFormsApp16
             this.btnGraphic.TabIndex = 6;
             this.btnGraphic.Text = "Graphic";
             this.btnGraphic.UseVisualStyleBackColor = false;
-            this.btnGraphic.Click += new System.EventHandler(this.button11_Click);
             // 
             // btnStatistics
             // 
@@ -235,7 +231,6 @@ namespace WindowsFormsApp16
             this.btnStatistics.TabIndex = 5;
             this.btnStatistics.Text = "Statistics";
             this.btnStatistics.UseVisualStyleBackColor = false;
-            this.btnStatistics.Click += new System.EventHandler(this.button11_Click);
             // 
             // btnClear
             // 
@@ -247,6 +242,7 @@ namespace WindowsFormsApp16
             this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnUpdate
             // 
@@ -293,12 +289,12 @@ namespace WindowsFormsApp16
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtName2);
             this.groupBox1.Controls.Add(this.txtJobs);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.txtName1);
             this.groupBox1.Controls.Add(this.txtİd);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.label6);
@@ -314,7 +310,20 @@ namespace WindowsFormsApp16
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtName2
+            // 
+            this.txtName2.Location = new System.Drawing.Point(92, 55);
+            this.txtName2.Name = "txtName2";
+            this.txtName2.Size = new System.Drawing.Size(100, 20);
+            this.txtName2.TabIndex = 10;
+            // 
+            // txtJobs
+            // 
+            this.txtJobs.Location = new System.Drawing.Point(92, 200);
+            this.txtJobs.Name = "txtJobs";
+            this.txtJobs.Size = new System.Drawing.Size(99, 20);
+            this.txtJobs.TabIndex = 9;
             // 
             // txtName
             // 
@@ -325,13 +334,6 @@ namespace WindowsFormsApp16
             this.txtName.Size = new System.Drawing.Size(33, 13);
             this.txtName.TabIndex = 0;
             this.txtName.Text = "name";
-            // 
-            // txtName1
-            // 
-            this.txtName1.Location = new System.Drawing.Point(92, 60);
-            this.txtName1.Name = "txtName1";
-            this.txtName1.Size = new System.Drawing.Size(100, 20);
-            this.txtName1.TabIndex = 1;
             // 
             // groupBox3
             // 
@@ -361,6 +363,7 @@ namespace WindowsFormsApp16
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(514, 162);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // peridDataGridViewTextBoxColumn
             // 
@@ -429,13 +432,6 @@ namespace WindowsFormsApp16
             // 
             this.table_1TableAdapter.ClearBeforeFill = true;
             // 
-            // txtJobs
-            // 
-            this.txtJobs.Location = new System.Drawing.Point(92, 200);
-            this.txtJobs.Name = "txtJobs";
-            this.txtJobs.Size = new System.Drawing.Size(99, 20);
-            this.txtJobs.TabIndex = 9;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -499,7 +495,6 @@ namespace WindowsFormsApp16
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label txtName;
-        private System.Windows.Forms.TextBox txtName1;
         private PersonelVeriTabaniDataSet personelVeriTabaniDataSet;
         private System.Windows.Forms.BindingSource table1BindingSource;
         private PersonelVeriTabaniDataSetTableAdapters.Table_1TableAdapter table_1TableAdapter;
@@ -512,6 +507,7 @@ namespace WindowsFormsApp16
         private System.Windows.Forms.DataGridViewTextBoxColumn perMeslekDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox txtJobs;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtName2;
     }
 }
 
